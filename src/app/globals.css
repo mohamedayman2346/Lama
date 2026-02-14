@@ -1,0 +1,145 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+  --green: #53c28b;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-green: var(--green);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+  --animate-moveUp: moveUp 3s infinite ease alternate;
+}
+
+@keyframes moveUp {
+  from {
+    transform: translateY(-15px);
+  }
+  to {
+    transform: translateY(0px) scale(1.03);
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  max-width: 100vw;
+  overflow-x: hidden;
+}
+
+.theme{
+  transition: 1s all ease;
+}
+
+.light{
+  background: var(--color-foreground);
+  color: var(--color-background);
+}
+
+.dark {
+  background: var(--color-background); 
+  color: var(--color-foreground);
+ 
+}
+
+.container {
+  max-width: 1366px;
+  min-height: 100vh;
+  margin: 0 auto;
+  padding: 0 60px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+/* footer icon */
+.social .icon {
+  @apply opacity-60 cursor-pointer
+}
+
+.btn {
+  @apply p-5 cursor-pointer  bg-green-500 hover:bg-green-700 active:bg-green-900 rounded 
+}
+
+.title {
+  @apply text-3xl font-bold py-5! bg-linear-90 from-green to-yellow-50 bg-clip-text text-transparent
+}
+
+/* about page */
+section {
+  @apply  my-12.5! flex flex-col gap-7.5 flex-1
+}
+
+section h1 {
+  @apply text-2xl
+}
+
+section p {
+  @apply text-lg font-light text-justify
+}
+
+/* contact page */
+input, textarea{
+  padding: 20px;
+  background: transparent;
+  border: 1px solid white;
+  font-size: 20px;
+  font-weight: bold;
+  border-radius: 5px;
+  color: white;
+  /* @apply p-5 bg-transparent outline-0 border text-white border-white text-xl font-bold rounded */
+}
+
+.light input, .light textarea {
+  color: var(--color-background);
+  border-color: var(--color-background);
+}
+
+.dark input, .dark textarea {
+  color: var(--color-foreground);
+  border-color: var(--color-foreground);
+
+}
+
+/* portfolio page*/
+.item{
+  @apply mb-5! border-5 border-white rounded w-75 h-100 relative bg-cover! transition duration-300
+}
+
+.item:hover {
+  @apply border-green
+}
+
+.item:nth-child(1){
+  background: url('/illustration.png');
+}
+.item:nth-child(2){
+  background: url('/websites.jpg');
+}
+.item:nth-child(3){
+  background: url('/apps.jpg');
+}
+
+.item .title{
+  @apply absolute right-2.5 bottom-2.5 font-bold text-4xl transition duration-300
+}
+
+.item:hover .title{
+  @apply text-green
+}
+

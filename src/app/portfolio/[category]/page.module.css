@@ -1,0 +1,7 @@
+
+@media (min-width: 1100) {
+    .box:nth-child(2n + 1){
+        flex-direction: row-reverse;
+    }
+    
+}
