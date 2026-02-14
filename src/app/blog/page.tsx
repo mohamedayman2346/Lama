@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import { notFound } from "next/navigation";
 
 interface itemStyle {
   userId: number,
@@ -10,11 +11,12 @@ interface itemStyle {
 }
 
 async function getData() {
-  const res = await fetch("http://localhost:3000/api/posts",{
+  const res = await fetch("https://lama-six-ochre.vercel.app/api/posts",{
     // next: { revalidate: 10 }, to get data every 10 second
     cache: 'no-store',
   });
   if (!res.ok) {
+    notFound();
     throw new Error("Failed to fetch data");
   }
   return res.json();

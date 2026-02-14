@@ -1,3 +1,4 @@
+import { notFound } from "next/navigation"
 import Post from "../../../models/Post"
 import { connect } from "../../../utils/db"
 import { NextResponse } from "next/server"
@@ -27,6 +28,7 @@ export const POST = async (request) => {
 
         return new NextResponse("Post has been Created", { status: 201 })
     } catch(err) {
+        notFound()
         return new NextResponse('Database Error', { status: 500 })
     }
 

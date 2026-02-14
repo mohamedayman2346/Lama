@@ -1,5 +1,6 @@
 import { Metadata } from "next";
 import Image from "next/image";
+import { notFound } from "next/navigation";
 
 interface dataStyle  {
   userId: number,
@@ -20,11 +21,12 @@ export async function generateMetadata({params} : {params: Promise<{id: string}>
   }
 }
 async function getData(id : string) : Promise<dataStyle> {
-  const res = await fetch(`http://localhost:3000/api/posts/${id}`, {
+  const res = await fetch(`https://lama-six-ochre.vercel.app/api/posts/${id}`, {
     cache: 'no-store',
   });
 
   if (!res.ok){
+    notFound();
     throw new Error("Failed to fetch data");
   }
 
