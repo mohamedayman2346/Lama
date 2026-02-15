@@ -97,7 +97,7 @@ export default function Dashboard() {
             <p>Loading...</p>
           ) : (
             data?.map((post, i) => (
-              <div key={i} className="border pe-5! rounded flex items-center w-90 justify-between my-12.5!" >
+              <div key={i} className="border pe-5!  rounded flex items-center w-90 justify-between my-12.5!" >
                 
                 <Image
                   className="object-cover rounded"
@@ -115,7 +115,7 @@ export default function Dashboard() {
             ))
           )}
         </div>
-        <form className="new flex flex-col gap-5" onSubmit={handleSubmit}>
+        <form className="new flex flex-col gap-5 w-full max-w-150" onSubmit={handleSubmit}>
           <h1>Add New Post</h1>
           <input name="title" type="text" placeholder="Title" />
           <input name="desc" type="text" placeholder="Description" />
